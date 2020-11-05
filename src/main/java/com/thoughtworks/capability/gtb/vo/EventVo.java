@@ -1,6 +1,9 @@
 package com.thoughtworks.capability.gtb.vo;
 
 import java.util.Date;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.thoughtworks.capability.gtb.serializer.DateSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,10 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EventVo {
-
   private String id;
   private String name;
   private EventType type;
+  @JsonSerialize(using = DateSerializer.class)
   private Date time;
   private UserVo user;
 }
